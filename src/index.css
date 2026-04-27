@@ -1,1 +1,258 @@
 @import "tailwindcss";
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f172a;
+  background: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f3f4f6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #14b8a6;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
+}
+
+.navbar__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.navbar__brand {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.navbar__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar__link {
+  color: #ffffff;
+  padding: 0.4rem 0.2rem;
+  font-size: 1rem;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__link:hover {
+  opacity: 0.82;
+}
+
+.page-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.content-card,
+.detail-card {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+}
+
+.content-card__eyebrow,
+.detail-card__eyebrow {
+  margin: 0 0 0.5rem;
+  color: #0f766e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detail-card__back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #0f766e;
+  font-weight: 700;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.detail-card__back-link:hover {
+  color: #115e59;
+  transform: translateX(-2px);
+}
+
+.content-card__title,
+.page-heading__title,
+.detail-card__title {
+  margin: 0;
+  color: #111827;
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.content-card__text,
+.detail-card__text,
+.detail-card__meta {
+  margin: 1rem 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.products-page {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 14px rgba(15, 23, 42, 0.08);
+}
+
+.page-heading {
+  margin-bottom: 1.5rem;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #c6c6c7;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.product-card__title {
+  margin: 0 0 0.75rem;
+  color: #111827;
+  font-size: 1.2rem;
+}
+
+.product-card__description {
+  margin: 0;
+  color: #475569;
+  line-height: 1.65;
+}
+
+.product-card__price,
+.detail-card__price {
+  margin: 1rem 0;
+  color: #0d9488;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.detail-card__price span {
+  color: #134e4a;
+}
+
+.detail-card__button {
+  margin-top: 0.25rem;
+}
+
+.product-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.button:hover {
+  transform: none;
+}
+
+.button--primary {
+  background: #14b8a6;
+  color: #ffffff;
+  border: 1px solid #14b8a6;
+}
+
+.button--primary:hover {
+  background: #0d9488;
+}
+
+.button--secondary {
+  background: #ffffff;
+  color: #0d9488;
+  border: 1px solid #2dd4bf;
+}
+
+.button--secondary:hover {
+  background: #f0fdfa;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-shell {
+    padding-top: 1.5rem;
+  }
+
+  .content-card,
+  .detail-card,
+  .product-card,
+  .products-page {
+    padding: 1.25rem;
+  }
+}
