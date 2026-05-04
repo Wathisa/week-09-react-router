@@ -1,8 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import { products } from "../mock-data/products";
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const { addToCart } = useOutletContext();
   const product = products.find((item) => item.id === id);
 
   if (!product) {
@@ -27,7 +28,11 @@ export default function ProductDetail() {
         <h1 className="detail-card__title">{product.name}</h1>
         <p className="detail-card__text">{product.description}</p>
         <p className="detail-card__price">${product.price.toFixed(2)}</p>
-        <button type="button" className="button button--primary detail-card__button">
+        <button
+          type="button"
+          className="button button--primary detail-card__button"
+          onClick={() => addToCart(product)}
+        >
           Add to Cart
         </button>
         <p className="detail-card__meta">Product ID: {product.id}</p>

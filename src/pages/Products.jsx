@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { products } from "../mock-data/products";
 
 export default function Products() {
   const navigate = useNavigate();
+  const { addToCart } = useOutletContext();
 
   return (
     <section className="products-page">
@@ -25,7 +26,11 @@ export default function Products() {
               >
                 View Details
               </button>
-              <button type="button" className="button button--secondary">
+              <button
+                type="button"
+                className="button button--secondary"
+                onClick={() => addToCart(product)}
+              >
                 Add to Cart
               </button>
             </div>
